@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ardian Junardi | Solutions Architect & Lead Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+
+    /* Animated mesh background */
+    body {
+      background-color: #06060f;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glassmorphism card */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .glass-hover {
+      transition: all 0.25s ease;
+    }
+
+    .glass-hover:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(96, 165, 250, 0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(96, 165, 250, 0.08);
+    }
+
+    /* Floating nav */
+    .nav-glass {
+      background: rgba(6, 6, 15, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Primary button */
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+    }
+
+    /* Timeline gradient line */
+    .timeline-line {
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #f472b6);
+    }
+
+    .timeline-dot {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      box-shadow: 0 0 14px rgba(96, 165, 250, 0.6);
+    }
+
+    /* Skill tag */
+    .skill-tag {
+      transition: all 0.2s ease;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Section divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.2), transparent);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Availability pulse */
+    @keyframes ping {
+      75%, 100% { transform: scale(2); opacity: 0; }
+    }
+
+    .ping { animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite; }
+
+    /* Scroll bounce */
+    @keyframes bounce-y {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    .bounce-y { animation: bounce-y 2s ease-in-out infinite; }
+
+    /* Orb */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      opacity: 0;
+      animation: orb-fade-in 2s ease forwards;
+    }
+
+    @keyframes orb-fade-in {
+      to { opacity: 1; }
+    }
+
+    /* Number highlight */
+    .stat-num {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* CTA card glow */
+    .cta-card {
+      box-shadow: 0 0 60px rgba(59, 130, 246, 0.1), 0 0 120px rgba(139, 92, 246, 0.06);
+    }
+  </style>
+</head>
+
+<body class="text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- ===== FLOATING NAV ===== -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <span class="font-black text-lg gradient-text tracking-tight">AJ</span>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#stack" class="hover:text-white transition-colors">Stack</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+      <a href="mailto:ardianjunardi@gmail.com"
+         class="btn-primary text-white text-sm px-5 py-2.5 rounded-xl font-semibold">
+        Hire Me
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="about" class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 overflow-hidden">
+    <!-- Background orbs -->
+    <div class="orb w-[500px] h-[500px] bg-blue-600/10 -top-24 -left-32" style="animation-delay:0.3s"></div>
+    <div class="orb w-[400px] h-[400px] bg-purple-600/10 bottom-0 -right-32" style="animation-delay:0.6s"></div>
+
+    <!-- Availability badge -->
+    <div class="flex items-center gap-2.5 glass px-4 py-2 rounded-full text-sm text-gray-300 mb-8"
+         data-aos="fade-down">
+      <span class="relative flex h-2 w-2">
+        <span class="ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+      </span>
+      Open to select engagements
+    </div>
+
+    <!-- Name -->
+    <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tight leading-none" data-aos="fade-up">
+      <span class="gradient-text">Ardian</span><br>
+      <span class="text-white">Junardi</span>
+    </h1>
+
+    <!-- Title -->
+    <p class="text-xl md:text-2xl text-gray-400 mb-6 font-light tracking-widest uppercase"
+       data-aos="fade-up" data-aos-delay="80">
+      Solutions Architect &nbsp;·&nbsp; Lead Backend Engineer
+    </p>
+
+    <!-- Tagline -->
+    <p class="max-w-2xl text-gray-400 text-lg leading-relaxed mb-10"
+       data-aos="fade-up" data-aos-delay="160">
+      I turn <span class="text-blue-400 font-medium">complex, brittle architectures</span> into systems
+      that perform under pressure. 9+ years designing backends that companies trust with their core business.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="240">
+      <a href="mailto:ardianjunardi@gmail.com"
+         class="btn-primary text-white px-8 py-4 rounded-2xl font-semibold flex items-center gap-2.5">
+        <i class="fa-solid fa-paper-plane text-sm"></i> Let's Talk
+      </a>
+      <a href="https://www.linkedin.com/in/ardian-junardi-a97b58123/" target="_blank"
+         class="glass glass-hover px-8 py-4 rounded-2xl font-semibold flex items-center gap-2.5 border border-white/10">
+        <i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-6 md:gap-12 max-w-lg w-full"
+         data-aos="fade-up" data-aos-delay="320">
+      <div class="text-center">
+        <div class="text-4xl md:text-5xl font-black stat-num">9+</div>
+        <div class="text-gray-500 text-xs mt-1.5 tracking-wide uppercase">Years</div>
+      </div>
+      <div class="text-center border-x border-white/8">
+        <div class="text-4xl md:text-5xl font-black stat-num">50+</div>
+        <div class="text-gray-500 text-xs mt-1.5 tracking-wide uppercase">Systems Built</div>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl md:text-5xl font-black stat-num">5</div>
+        <div class="text-gray-500 text-xs mt-1.5 tracking-wide uppercase">Companies Led</div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 bounce-y text-gray-600 text-sm">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== WHAT I SOLVE ===== -->
+  <section class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-3">Problems I Fix</p>
+        <h2 class="text-4xl md:text-5xl font-bold">What I Solve</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up">
+          <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-bolt text-blue-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">System Bottlenecks</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Diagnose and eliminate what's slowing you down. Scale without full rewrites — targeted fixes that multiply throughput.
+          </p>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
+          <div class="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
+            <i class="fa-brands fa-aws text-purple-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Cloud Architecture</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Right-sized, observable infrastructure on AWS & GCP. Cut cloud waste, survive traffic spikes, sleep through the night.
+          </p>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="120">
+          <div class="w-11 h-11 rounded-xl bg-pink-500/10 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-people-group text-pink-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Engineering Velocity</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Close the gap between product and engineering. Turn fuzzy requirements into shipped code without burning your team out.
+          </p>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="40">
+          <div class="w-11 h-11 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-network-wired text-cyan-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Microservices Migration</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Break monoliths without downtime. Strangler-fig patterns, event-driven decoupling, clean service boundaries.
+          </p>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-11 h-11 rounded-xl bg-green-500/10 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-database text-green-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Data & Performance</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Schema design, query optimization, caching layers. Make slow queries fast. Make expensive infra lean.
+          </p>
+        </div>
+
+        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="160">
+          <div class="w-11 h-11 rounded-xl bg-orange-500/10 flex items-center justify-center mb-5">
+            <i class="fa-solid fa-shield-halved text-orange-400 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-bold mb-2">Reliability & Observability</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Build systems that fail gracefully and alert clearly. Proper logging, tracing, and runbooks so on-call is survivable.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-3">Career</p>
+        <h2 class="text-4xl md:text-5xl font-bold">Experience</h2>
+      </div>
+
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-[22px] top-2 bottom-2 w-0.5 timeline-line rounded-full"></div>
+
+        <div class="space-y-6">
+
+          <!-- Delos -->
+          <div class="relative pl-14" data-aos="fade-right">
+            <div class="timeline-dot absolute left-3 top-5 w-4 h-4 rounded-full ring-4 ring-[#06060f]"></div>
+            <div class="glass glass-hover rounded-2xl p-6">
+              <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+                <h3 class="text-lg font-bold">Solutions Architect</h3>
+                <span class="px-3 py-0.5 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20 font-medium">
+                  Current
+                </span>
+              </div>
+              <p class="text-blue-400 font-semibold text-sm mb-0.5">Delos</p>
+              <p class="text-gray-600 text-xs mb-3">2024 — Present · Jakarta</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Designing scalable infrastructure and system architecture for core product lines. Driving technical roadmaps and aligning engineering execution with business objectives.
+              </p>
+            </div>
+          </div>
+
+          <!-- Verein Tech -->
+          <div class="relative pl-14" data-aos="fade-right" data-aos-delay="50">
+            <div class="timeline-dot absolute left-3 top-5 w-4 h-4 rounded-full ring-4 ring-[#06060f]"></div>
+            <div class="glass glass-hover rounded-2xl p-6">
+              <div class="flex flex-wrap items-start justify-between gap-2 mb-1">
+                <h3 class="text-lg font-bold">Managing Partner</h3>
+                <span class="px-3 py-0.5 bg-green-500/10 text-green-400 text-xs rounded-full border border-green-500/20 font-medium">
+                  Current
+                </span>
+              </div>
+              <p class="text-purple-400 font-semibold text-sm mb-0.5">Verein Tech</p>
+              <p class="text-gray-600 text-xs mb-3">2023 — Present</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Co-founding and operating a tech consultancy. Delivering end-to-end engineering solutions for clients across e-commerce, logistics, and fintech — from architecture to production.
+              </p>
+            </div>
+          </div>
+
+          <!-- Freshbox -->
+          <div class="relative pl-14" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-dot absolute left-3 top-5 w-4 h-4 rounded-full ring-4 ring-[#06060f]"></div>
+            <div class="glass glass-hover rounded-2xl p-6">
+              <div class="mb-1">
+                <h3 class="text-lg font-bold">Lead Backend Engineer</h3>
+              </div>
+              <p class="text-pink-400 font-semibold text-sm mb-0.5">Freshbox</p>
+              <p class="text-gray-600 text-xs mb-3">2023 — 2024</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Led backend engineering for a high-growth D2C platform. Built and optimized order management, inventory, and last-mile logistics systems handling thousands of daily transactions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rebelworks -->
+          <div class="relative pl-14" data-aos="fade-right" data-aos-delay="150">
+            <div class="timeline-dot absolute left-3 top-5 w-4 h-4 rounded-full ring-4 ring-[#06060f]"></div>
+            <div class="glass glass-hover rounded-2xl p-6">
+              <div class="mb-1">
+                <h3 class="text-lg font-bold">Lead Backend Engineer</h3>
+              </div>
+              <p class="text-cyan-400 font-semibold text-sm mb-0.5">Rebelworks</p>
+              <p class="text-gray-600 text-xs mb-3">2018 — 2023 · <span class="text-gray-500">5 years</span></p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                5 years building and leading backend teams across multiple SaaS products. Architected core services, established engineering standards, and mentored engineers — foundations still running in production today.
+              </p>
+            </div>
+          </div>
+
+          <!-- Carsurin -->
+          <div class="relative pl-14" data-aos="fade-right" data-aos-delay="200">
+            <div class="timeline-dot absolute left-3 top-5 w-4 h-4 rounded-full ring-4 ring-[#06060f]"></div>
+            <div class="glass glass-hover rounded-2xl p-6">
+              <div class="mb-1">
+                <h3 class="text-lg font-bold">Application Developer</h3>
+              </div>
+              <p class="text-orange-400 font-semibold text-sm mb-0.5">Carsurin</p>
+              <p class="text-gray-600 text-xs mb-3">2017 — 2018</p>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Built internal tooling and customer-facing applications. Foundation in enterprise software delivery and full-stack development.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== TECH STACK ===== -->
+  <section id="stack" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-3">Technology</p>
+        <h2 class="text-4xl md:text-5xl font-bold">Core Stack</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto text-sm">
+          Tools I reach for when building systems that need to last — not just ship.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+
+        <div data-aos="fade-up">
+          <p class="text-xs text-gray-600 uppercase tracking-widest mb-3 font-medium">Languages</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-blue-300 bg-blue-500/8 border border-blue-500/20">Golang</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-blue-300 bg-blue-500/8 border border-blue-500/20">PHP</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-blue-300 bg-blue-500/8 border border-blue-500/20">Python</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-blue-300 bg-blue-500/8 border border-blue-500/20">TypeScript</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="40">
+          <p class="text-xs text-gray-600 uppercase tracking-widest mb-3 font-medium">Databases & Storage</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-purple-300 bg-purple-500/8 border border-purple-500/20">PostgreSQL</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-purple-300 bg-purple-500/8 border border-purple-500/20">Redis</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-purple-300 bg-purple-500/8 border border-purple-500/20">MySQL</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-purple-300 bg-purple-500/8 border border-purple-500/20">MongoDB</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-purple-300 bg-purple-500/8 border border-purple-500/20">Elasticsearch</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80">
+          <p class="text-xs text-gray-600 uppercase tracking-widest mb-3 font-medium">Messaging & APIs</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-pink-300 bg-pink-500/8 border border-pink-500/20">RabbitMQ</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-pink-300 bg-pink-500/8 border border-pink-500/20">Kafka</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-pink-300 bg-pink-500/8 border border-pink-500/20">gRPC</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-pink-300 bg-pink-500/8 border border-pink-500/20">REST</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-pink-300 bg-pink-500/8 border border-pink-500/20">GraphQL</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="120">
+          <p class="text-xs text-gray-600 uppercase tracking-widest mb-3 font-medium">Cloud & DevOps</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">AWS</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">GCP</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Docker</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Kubernetes</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Terraform</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">CI/CD</span>
+          </div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="160">
+          <p class="text-xs text-gray-600 uppercase tracking-widest mb-3 font-medium">Architecture Patterns</p>
+          <div class="flex flex-wrap gap-2.5">
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-green-300 bg-green-500/8 border border-green-500/20">Microservices</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-green-300 bg-green-500/8 border border-green-500/20">Event-Driven</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-green-300 bg-green-500/8 border border-green-500/20">Domain-Driven Design</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-green-300 bg-green-500/8 border border-green-500/20">CQRS</span>
+            <span class="skill-tag px-4 py-2 rounded-xl text-sm text-green-300 bg-green-500/8 border border-green-500/20">API Gateway</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== WHY ME ===== -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="text-pink-400 text-xs font-bold tracking-widest uppercase mb-3">Differentiators</p>
+        <h2 class="text-4xl md:text-5xl font-bold">
+          Why Engineers & CTOs<br>
+          <span class="gradient-text">Call Me First</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-right">
+          <div class="text-2xl flex-shrink-0 mt-0.5">⚡</div>
+          <div>
+            <h3 class="font-bold mb-1.5">Fast without cutting corners</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              9 years of pattern recognition means I know which shortcuts kill you in production — and which ones are just smart engineering.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-left">
+          <div class="text-2xl flex-shrink-0 mt-0.5">🏗️</div>
+          <div>
+            <h3 class="font-bold mb-1.5">Architecture + Execution</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              I don't just draw diagrams. I write the code, review the PRs, and own the outcome end-to-end.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-right" data-aos-delay="50">
+          <div class="text-2xl flex-shrink-0 mt-0.5">🎯</div>
+          <div>
+            <h3 class="font-bold mb-1.5">Business-first thinking</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Technology serves the business. I translate between engineering and business outcomes so nothing gets lost, delayed, or over-engineered.
+            </p>
+          </div>
+        </div>
+
+        <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-left" data-aos-delay="50">
+          <div class="text-2xl flex-shrink-0 mt-0.5">🔍</div>
+          <div>
+            <h3 class="font-bold mb-1.5">I've seen this before</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              D2C logistics to enterprise SaaS — I've debugged the same classes of problems across industries and know exactly where to look first.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== CTA ===== -->
+  <section id="contact" class="py-24 px-6 text-center relative overflow-hidden">
+    <div class="orb w-[500px] h-[500px] bg-blue-600/8 top-0 left-1/2 -translate-x-1/2" style="animation-delay:0.5s"></div>
+
+    <div class="relative max-w-3xl mx-auto">
+      <div class="glass cta-card rounded-3xl px-8 md:px-14 py-14" data-aos="fade-up">
+        <p class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-4">Let's Work Together</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-5">
+          Ready to Fix<br>
+          <span class="gradient-text">Your Architecture?</span>
+        </h2>
+        <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+          If your system is slowing you down, leaking money on infra, or your team can't ship fast enough — let's talk. I'll tell you exactly what I see and what I'd do about it.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="mailto:ardianjunardi@gmail.com"
+             class="btn-primary text-white px-8 py-4 rounded-2xl font-bold flex items-center gap-2.5">
+            <i class="fa-solid fa-envelope text-sm"></i> ardianjunardi@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/ardian-junardi-a97b58123/" target="_blank"
+             class="glass glass-hover px-8 py-4 rounded-2xl font-bold flex items-center gap-2.5 border border-white/10">
+            <i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center border-t border-white/5">
+    <p class="text-gray-600 text-sm">© 2026 Ardian Junardi &nbsp;·&nbsp; Solutions Architect &nbsp;·&nbsp; Jakarta, Indonesia</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 650, once: true, offset: 70 });
+  </script>
+
+</body>
+</html>
