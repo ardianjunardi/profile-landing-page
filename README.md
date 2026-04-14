@@ -30,4 +30,4 @@ No build step required. Open `index.html` in a browser.
 
 ## Deployment
 
-Auto-deploys to Cloudflare Pages on push to `main`. Workers config lives on a separate branch (`cloudflare/workers-autoconfig`).
+Auto-deploys to [Cloudflare Workers](https://workers.cloudflare.com/) on push to `main`. Configuration in `wrangler.jsonc` (worker name: `www`, static assets served from root).

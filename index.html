@@ -144,6 +144,7 @@
       <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
         <a href="#about" class="hover:text-white transition-colors">About</a>
         <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
         <a href="#stack" class="hover:text-white transition-colors">Stack</a>
         <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </div>
@@ -398,6 +399,75 @@
           </div>
 
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14" data-aos="fade-up">
+        <p class="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-3">Selected Work</p>
+        <h2 class="text-4xl md:text-5xl font-bold">Projects</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto text-sm">
+          Systems built in production — designed to scale, built to last.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Soechi Crew Management System -->
+        <div class="glass glass-hover rounded-2xl p-6" data-aos="fade-up" data-aos-delay="60">
+          <div class="flex items-center justify-between mb-5">
+            <img src="https://www.soechi.com/images/logo.jpg" alt="PT Soechi Lines"
+                 class="h-8 object-contain rounded"
+                 onerror="this.style.display='none'">
+            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs rounded-full border border-cyan-500/20 font-medium">
+              Maritime
+            </span>
+          </div>
+          <h3 class="text-lg font-bold mb-1">Soechi Crew Management System</h3>
+          <p class="text-cyan-400 text-sm font-semibold mb-1">PT SOECHI LINES Tbk</p>
+          <p class="text-gray-600 text-xs mb-4">Integrated Energy Transportation Solution</p>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">
+            Production API backend managing maritime crew records, vessel assignments, and operational
+            content across 30+ ships — built with a multi-service Go architecture and real-time sync
+            via Elasticsearch.
+          </p>
+          <ul class="space-y-2 mb-5">
+            <li class="flex items-start gap-2.5 text-sm text-gray-400">
+              <i class="fa-solid fa-circle-check text-cyan-500/60 mt-0.5 text-xs flex-shrink-0"></i>
+              Crew sync engine with Elasticsearch indexing (wiki, crew, wiki_crew indices)
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-gray-400">
+              <i class="fa-solid fa-circle-check text-cyan-500/60 mt-0.5 text-xs flex-shrink-0"></i>
+              Async job workers: news reminders, crew sync, status-progress sync
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-gray-400">
+              <i class="fa-solid fa-circle-check text-cyan-500/60 mt-0.5 text-xs flex-shrink-0"></i>
+              WhatsApp Cloud API integration (OTP + free text templates)
+            </li>
+            <li class="flex items-start gap-2.5 text-sm text-gray-400">
+              <i class="fa-solid fa-circle-check text-cyan-500/60 mt-0.5 text-xs flex-shrink-0"></i>
+              Multi-channel REST API (app + CMS) with JWT auth and AWS S3 uploads
+            </li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Golang</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">PostgreSQL</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Redis</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Elasticsearch</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">RabbitMQ</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">AWS S3</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">Docker</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">chi</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">JWT</span>
+            <span class="skill-tag px-3 py-1 rounded-lg text-xs text-cyan-300 bg-cyan-500/8 border border-cyan-500/20">WhatsApp API</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
