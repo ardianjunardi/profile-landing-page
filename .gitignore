@@ -1,0 +1,25 @@
+# Claude
+CLAUDE.md
+.claude/
+.mcp.json
+_plan.md
+
+# Serena
+.serena/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Cloudflare Workers
+.wrangler/
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
