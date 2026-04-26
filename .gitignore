@@ -3,6 +3,9 @@ CLAUDE.md
 .claude/
 .mcp.json
 _plan.md
+.agents
+skills-lock.json
+
 
 # Serena
 .serena/
@@ -23,3 +26,9 @@ Thumbs.db
 !.dev.vars.example
 .env*
 !.env.example
+
+# Node.js
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

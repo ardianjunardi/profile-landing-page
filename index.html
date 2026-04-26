@@ -4,11 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ardian Junardi | Solutions Architect & Lead Engineer</title>
+  <meta name="description" content="Solutions Architect & Lead Backend Engineer with 9+ years building scalable systems. Golang, TypeScript, cloud-native architecture, AI backends." />
+  <meta property="og:title" content="Ardian Junardi | Solutions Architect & Lead Engineer" />
+  <meta property="og:description" content="I turn complex, brittle architectures into systems that perform under pressure. 9+ years designing backends that companies trust with their core business." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ardian Junardi | Solutions Architect & Lead Engineer" />
+  <meta name="twitter:description" content="Solutions Architect & Lead Backend Engineer. 9+ years, 50+ systems, 5+ industries." />
+  <meta name="theme-color" content="#06060f" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2360a5fa'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%2306060f'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-weight='900' font-size='16' fill='url(%23g)'%3EAJ%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { fontFamily: { sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] } } } }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    * { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; }
+
+    /* Noise grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
 
     /* Animated mesh background */
     body {
@@ -20,7 +48,7 @@
 
     /* Gradient text */
     .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -31,17 +59,23 @@
       background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
     }
 
     .glass-hover {
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .glass-hover:hover {
       background: rgba(255, 255, 255, 0.06);
       border-color: rgba(96, 165, 250, 0.25);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(96, 165, 250, 0.08);
+      box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04), 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(96, 165, 250, 0.08);
+    }
+
+    .glass-hover:active {
+      transform: translateY(-1px);
+      transition-duration: 0.1s;
     }
 
     /* Floating nav */
@@ -53,19 +87,25 @@
 
     /* Primary button */
     .btn-primary {
-      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-      transition: all 0.25s ease;
+      background: #3b82f6;
+      transition: all 0.3s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
     .btn-primary:hover {
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      background: #2563eb;
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.35);
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+      transition-duration: 0.1s;
     }
 
     /* Timeline gradient line */
     .timeline-line {
-      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #f472b6);
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
     }
 
     .timeline-dot {
@@ -75,7 +115,7 @@
 
     /* Skill tag */
     .skill-tag {
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.33, 1, 0.68, 1);
       cursor: default;
     }
 
@@ -130,16 +170,21 @@
 
     /* CTA card glow */
     .cta-card {
-      box-shadow: 0 0 60px rgba(59, 130, 246, 0.1), 0 0 120px rgba(139, 92, 246, 0.06);
+      box-shadow: 0 0 80px rgba(59, 130, 246, 0.08);
     }
   </style>
 </head>
 
 <body class="text-white font-sans antialiased overflow-x-hidden">
 
+  <!-- Skip to content -->
+  <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-semibold">
+    Skip to content
+  </a>
+
   <!-- ===== FLOATING NAV ===== -->
-  <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-6 py-4">
-    <div class="max-w-6xl mx-auto flex items-center justify-between">
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
       <span class="font-black text-lg gradient-text tracking-tight">AJ</span>
       <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
         <a href="#about" class="hover:text-white transition-colors">About</a>
@@ -148,10 +193,29 @@
         <a href="#stack" class="hover:text-white transition-colors">Stack</a>
         <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </div>
-      <a href="mailto:ardianjunardi@gmail.com"
-         class="btn-primary text-white text-sm px-5 py-2.5 rounded-xl font-semibold">
-        Hire Me
-      </a>
+      <div class="flex items-center gap-4">
+        <a href="mailto:ardianjunardi@gmail.com"
+           class="btn-primary text-white text-sm px-5 py-2.5 rounded-xl font-semibold hidden md:inline-flex">
+          Hire Me
+        </a>
+        <button id="menu-toggle" class="md:hidden text-gray-400 hover:text-white text-xl transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-white/5 px-6 py-5">
+      <div class="flex flex-col gap-4 text-sm text-gray-400">
+        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+        <a href="#stack" class="hover:text-white transition-colors">Stack</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        <a href="mailto:ardianjunardi@gmail.com"
+           class="btn-primary text-white text-sm px-5 py-2.5 rounded-xl font-semibold text-center mt-2">
+          Hire Me
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -228,23 +292,27 @@
   <div class="divider"></div>
 
   <!-- ===== WHAT I SOLVE ===== -->
-  <section class="py-24 px-6">
+  <section class="py-28 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14" data-aos="fade-up">
         <p class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-3">Problems I Fix</p>
         <h2 class="text-4xl md:text-5xl font-bold">What I Solve</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-5">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up">
-          <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
-            <i class="fa-solid fa-bolt text-blue-400 text-lg"></i>
+        <div class="glass glass-hover rounded-2xl p-7 md:col-span-2 lg:col-span-2" data-aos="fade-up">
+          <div class="flex gap-5 items-start">
+            <div class="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-bolt text-blue-400 text-lg"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold mb-2">System Bottlenecks</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Diagnose and eliminate what's slowing you down. Scale without full rewrites — targeted fixes that multiply throughput.
+              </p>
+            </div>
           </div>
-          <h3 class="text-lg font-bold mb-2">System Bottlenecks</h3>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Diagnose and eliminate what's slowing you down. Scale without full rewrites — targeted fixes that multiply throughput.
-          </p>
         </div>
 
         <div class="glass glass-hover rounded-2xl p-7" data-aos="fade-up" data-aos-delay="60">
@@ -304,7 +372,7 @@
   <div class="divider"></div>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section id="experience" class="py-24 px-6">
+  <section id="experience" class="py-28 px-6">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-14" data-aos="fade-up">
         <p class="text-purple-400 text-xs font-bold tracking-widest uppercase mb-3">Career</p>
@@ -406,7 +474,7 @@
   <div class="divider"></div>
 
   <!-- ===== PROJECTS ===== -->
-  <section id="projects" class="py-24 px-6">
+  <section id="projects" class="py-28 px-6">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14" data-aos="fade-up">
         <p class="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-3">Selected Work</p>
@@ -733,7 +801,7 @@
   <div class="divider"></div>
 
   <!-- ===== TECH STACK ===== -->
-  <section id="stack" class="py-24 px-6">
+  <section id="stack" class="py-28 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14" data-aos="fade-up">
         <p class="text-cyan-400 text-xs font-bold tracking-widest uppercase mb-3">Technology</p>
@@ -837,20 +905,22 @@
   <div class="divider"></div>
 
   <!-- ===== WHY ME ===== -->
-  <section class="py-24 px-6">
+  <section class="py-28 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14" data-aos="fade-up">
         <p class="text-pink-400 text-xs font-bold tracking-widest uppercase mb-3">Differentiators</p>
         <h2 class="text-4xl md:text-5xl font-bold">
           Why Engineers & CTOs<br>
-          <span class="gradient-text">Call Me First</span>
+          Call Me First
         </h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5">
 
         <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-right">
-          <div class="text-2xl flex-shrink-0 mt-0.5">⚡</div>
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="fa-solid fa-bolt text-blue-400"></i>
+          </div>
           <div>
             <h3 class="font-bold mb-1.5">Fast without cutting corners</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
@@ -860,7 +930,9 @@
         </div>
 
         <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-left">
-          <div class="text-2xl flex-shrink-0 mt-0.5">🏗️</div>
+          <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="fa-solid fa-compass-drafting text-purple-400"></i>
+          </div>
           <div>
             <h3 class="font-bold mb-1.5">Architecture + Execution</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
@@ -870,7 +942,9 @@
         </div>
 
         <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-right" data-aos-delay="50">
-          <div class="text-2xl flex-shrink-0 mt-0.5">🎯</div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="fa-solid fa-crosshairs text-cyan-400"></i>
+          </div>
           <div>
             <h3 class="font-bold mb-1.5">Business-first thinking</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
@@ -880,7 +954,9 @@
         </div>
 
         <div class="glass rounded-2xl p-6 flex gap-4 items-start glass-hover" data-aos="fade-left" data-aos-delay="50">
-          <div class="text-2xl flex-shrink-0 mt-0.5">🔍</div>
+          <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <i class="fa-solid fa-magnifying-glass text-green-400"></i>
+          </div>
           <div>
             <h3 class="font-bold mb-1.5">I've seen this before</h3>
             <p class="text-gray-400 text-sm leading-relaxed">
@@ -896,7 +972,7 @@
   <div class="divider"></div>
 
   <!-- ===== CTA ===== -->
-  <section id="contact" class="py-24 px-6 text-center relative overflow-hidden">
+  <section id="contact" class="py-28 px-6 text-center relative overflow-hidden">
     <div class="orb w-[500px] h-[500px] bg-blue-600/8 top-0 left-1/2 -translate-x-1/2" style="animation-delay:0.5s"></div>
 
     <div class="relative max-w-3xl mx-auto">
@@ -904,7 +980,7 @@
         <p class="text-blue-400 text-xs font-bold tracking-widest uppercase mb-4">Let's Work Together</p>
         <h2 class="text-4xl md:text-5xl font-bold mb-5">
           Ready to Fix<br>
-          <span class="gradient-text">Your Architecture?</span>
+          Your Architecture?
         </h2>
         <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
           If your system is slowing you down, leaking money on infra, or your team can't ship fast enough — let's talk. I'll tell you exactly what I see and what I'd do about it.
@@ -930,6 +1006,25 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 650, once: true, offset: 70 });
+
+    // Mobile nav toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuToggle.querySelector('i');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('fa-bars');
+      menuIcon.classList.toggle('fa-xmark');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.add('fa-bars');
+        menuIcon.classList.remove('fa-xmark');
+      });
+    });
   </script>
 
 </body>
